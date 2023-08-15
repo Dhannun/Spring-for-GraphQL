@@ -5,6 +5,7 @@ import click.touchit.springgraphql.repository.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
@@ -27,6 +28,7 @@ public class BookController {
     }
 
     @SchemaMapping(typeName = "Query", value = "findOne")
+//    @QueryMapping // To use this annotation, the method name MUST be the same with the query name in the graphql query
     public Book findById(@Argument Integer id) {
         logger.info("Fetching Book with ID [ %s ]".formatted(id));
         return bookRepository.findById(id);
