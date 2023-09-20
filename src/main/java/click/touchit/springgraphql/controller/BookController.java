@@ -23,7 +23,7 @@ public class BookController {
 
     @SchemaMapping(typeName = "Query", value = "allBooks")
     public List<Book> findAll() {
-        logger.info("Fetching All Books");
+        logger.info("Fetching All Books, and worked");
         return bookRepository.findAll();
     }
 
